@@ -1,0 +1,215 @@
+|add_sub
+a[0] => a[0]~3.IN1
+a[1] => a[1]~2.IN1
+a[2] => a[2]~1.IN1
+a[3] => a[3]~0.IN1
+b[0] => b[0]~3.IN2
+b[1] => b[1]~2.IN2
+b[2] => b[2]~1.IN2
+b[3] => b[3]~0.IN2
+cin => cin~0.IN1
+x => x~0.IN1
+f[0] <= BcdAdd:comb_6.port3
+f[1] <= BcdAdd:comb_6.port3
+f[2] <= BcdAdd:comb_6.port3
+f[3] <= BcdAdd:comb_6.port3
+cout <= BcdAdd:comb_6.port4
+s => s~0.IN1
+
+
+|add_sub|comp:comb_4
+a => w~0.IN0
+b => x~0.IN0
+b => w~0.IN1
+c => x~0.IN1
+c => y.DATAIN
+c => w~1.IN1
+d => z.DATAIN
+w <= w~1.DB_MAX_OUTPUT_PORT_TYPE
+x <= x~0.DB_MAX_OUTPUT_PORT_TYPE
+y <= c.DB_MAX_OUTPUT_PORT_TYPE
+z <= d.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|add_sub|qmux:comb_5
+a[0] => b~3.DATAB
+a[1] => b~2.DATAB
+a[2] => b~1.DATAB
+a[3] => b~0.DATAB
+not_a[0] => b~3.DATAA
+not_a[1] => b~2.DATAA
+not_a[2] => b~1.DATAA
+not_a[3] => b~0.DATAA
+s => b~3.OUTPUTSELECT
+s => b~2.OUTPUTSELECT
+s => b~1.OUTPUTSELECT
+s => b~0.OUTPUTSELECT
+b[0] <= b~3.DB_MAX_OUTPUT_PORT_TYPE
+b[1] <= b~2.DB_MAX_OUTPUT_PORT_TYPE
+b[2] <= b~1.DB_MAX_OUTPUT_PORT_TYPE
+b[3] <= b~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|add_sub|BcdAdd:comb_6
+a[0] => a[0]~3.IN1
+a[1] => a[1]~2.IN1
+a[2] => a[2]~1.IN1
+a[3] => a[3]~0.IN1
+b[0] => b[0]~3.IN1
+b[1] => b[1]~2.IN1
+b[2] => b[2]~1.IN1
+b[3] => b[3]~0.IN1
+cin => cin~0.IN1
+s[0] <= fourBit:comb_13.port3
+s[1] <= fourBit:comb_13.port3
+s[2] <= fourBit:comb_13.port3
+s[3] <= fourBit:comb_13.port3
+cout <= res[1].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|add_sub|BcdAdd:comb_6|fourBit:comb_4
+a[0] => a[0]~3.IN1
+a[1] => a[1]~2.IN1
+a[2] => a[2]~1.IN1
+a[3] => a[3]~0.IN1
+b[0] => b[0]~3.IN1
+b[1] => b[1]~2.IN1
+b[2] => b[2]~1.IN1
+b[3] => b[3]~0.IN1
+c0 => c0~0.IN1
+s[0] <= FA:fa0.port3
+s[1] <= FA:fa1.port3
+s[2] <= FA:fa2.port3
+s[3] <= FA:fa3.port3
+c4 <= FA:fa3.port4
+
+
+|add_sub|BcdAdd:comb_6|fourBit:comb_4|FA:fa0
+a => c_out~1.IN0
+a => c_out~0.IN0
+a => sum~0.IN0
+b => c_out~3.IN0
+b => c_out~0.IN1
+b => sum~0.IN1
+c => c_out~3.IN1
+c => c_out~1.IN1
+c => sum~1.IN1
+sum <= sum~1.DB_MAX_OUTPUT_PORT_TYPE
+c_out <= c_out~4.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|add_sub|BcdAdd:comb_6|fourBit:comb_4|FA:fa1
+a => c_out~1.IN0
+a => c_out~0.IN0
+a => sum~0.IN0
+b => c_out~3.IN0
+b => c_out~0.IN1
+b => sum~0.IN1
+c => c_out~3.IN1
+c => c_out~1.IN1
+c => sum~1.IN1
+sum <= sum~1.DB_MAX_OUTPUT_PORT_TYPE
+c_out <= c_out~4.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|add_sub|BcdAdd:comb_6|fourBit:comb_4|FA:fa2
+a => c_out~1.IN0
+a => c_out~0.IN0
+a => sum~0.IN0
+b => c_out~3.IN0
+b => c_out~0.IN1
+b => sum~0.IN1
+c => c_out~3.IN1
+c => c_out~1.IN1
+c => sum~1.IN1
+sum <= sum~1.DB_MAX_OUTPUT_PORT_TYPE
+c_out <= c_out~4.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|add_sub|BcdAdd:comb_6|fourBit:comb_4|FA:fa3
+a => c_out~1.IN0
+a => c_out~0.IN0
+a => sum~0.IN0
+b => c_out~3.IN0
+b => c_out~0.IN1
+b => sum~0.IN1
+c => c_out~3.IN1
+c => c_out~1.IN1
+c => sum~1.IN1
+sum <= sum~1.DB_MAX_OUTPUT_PORT_TYPE
+c_out <= c_out~4.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|add_sub|BcdAdd:comb_6|fourBit:comb_13
+a[0] => a[0]~3.IN1
+a[1] => a[1]~2.IN1
+a[2] => a[2]~1.IN1
+a[3] => a[3]~0.IN1
+b[0] => b[0]~3.IN1
+b[1] => b[1]~2.IN1
+b[2] => b[2]~1.IN1
+b[3] => b[3]~0.IN1
+c0 => c0~0.IN1
+s[0] <= FA:fa0.port3
+s[1] <= FA:fa1.port3
+s[2] <= FA:fa2.port3
+s[3] <= FA:fa3.port3
+c4 <= FA:fa3.port4
+
+
+|add_sub|BcdAdd:comb_6|fourBit:comb_13|FA:fa0
+a => c_out~1.IN0
+a => c_out~0.IN0
+a => sum~0.IN0
+b => c_out~3.IN0
+b => c_out~0.IN1
+b => sum~0.IN1
+c => c_out~3.IN1
+c => c_out~1.IN1
+c => sum~1.IN1
+sum <= sum~1.DB_MAX_OUTPUT_PORT_TYPE
+c_out <= c_out~4.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|add_sub|BcdAdd:comb_6|fourBit:comb_13|FA:fa1
+a => c_out~1.IN0
+a => c_out~0.IN0
+a => sum~0.IN0
+b => c_out~3.IN0
+b => c_out~0.IN1
+b => sum~0.IN1
+c => c_out~3.IN1
+c => c_out~1.IN1
+c => sum~1.IN1
+sum <= sum~1.DB_MAX_OUTPUT_PORT_TYPE
+c_out <= c_out~4.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|add_sub|BcdAdd:comb_6|fourBit:comb_13|FA:fa2
+a => c_out~1.IN0
+a => c_out~0.IN0
+a => sum~0.IN0
+b => c_out~3.IN0
+b => c_out~0.IN1
+b => sum~0.IN1
+c => c_out~3.IN1
+c => c_out~1.IN1
+c => sum~1.IN1
+sum <= sum~1.DB_MAX_OUTPUT_PORT_TYPE
+c_out <= c_out~4.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|add_sub|BcdAdd:comb_6|fourBit:comb_13|FA:fa3
+a => c_out~1.IN0
+a => c_out~0.IN0
+a => sum~0.IN0
+b => c_out~3.IN0
+b => c_out~0.IN1
+b => sum~0.IN1
+c => c_out~3.IN1
+c => c_out~1.IN1
+c => sum~1.IN1
+sum <= sum~1.DB_MAX_OUTPUT_PORT_TYPE
+c_out <= c_out~4.DB_MAX_OUTPUT_PORT_TYPE
+
+
